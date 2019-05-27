@@ -1,0 +1,11 @@
+uuid: da7d9185-9783-4461-9c49-04214acffeaf
+langcode: en
+status: true
+dependencies: {  }
+name: Article
+type: article
+description: 'This is an article content type.'
+help: ''
+new_revision: false
+preview_mode: 0
+display_submitted: false

@@ -1,0 +1,35 @@
+uuid: 4029d351-4b3e-4ba6-a3fd-1cbf41265c8a
+langcode: en
+status: true
+dependencies:
+  module:
+    - key
+id: key--key
+disabled: true
+path: key/key
+resourceType: key--key
+resourceFields:
+  id:
+    fieldName: id
+    publicName: id
+    enhancer:
+      id: ''
+    disabled: false
+  type:
+    fieldName: type
+    publicName: type
+    enhancer:
+      id: ''
+    disabled: false
+  uuid:
+    fieldName: uuid
+    publicName: uuid
+    enhancer:
+      id: ''
+    disabled: false
+  _core:
+    fieldName: _core
+    publicName: _core
+    enhancer:
+      id: ''
+    disabled: false

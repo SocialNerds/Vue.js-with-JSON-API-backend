@@ -1,0 +1,14 @@
+uuid: cb9dca75-a760-46c2-bc4c-04f6d4b56eb8
+name: Backend
+mail: info@socialnerds.gr
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /user/login
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI

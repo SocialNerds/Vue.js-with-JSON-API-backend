@@ -1,0 +1,35 @@
+uuid: 8a892ad5-684d-431b-b325-e222d2f4e23f
+langcode: en
+status: true
+dependencies:
+  module:
+    - key
+id: key_config_override--key_config_override
+disabled: true
+path: key_config_override/key_config_override
+resourceType: key_config_override--key_config_override
+resourceFields:
+  id:
+    fieldName: id
+    publicName: id
+    enhancer:
+      id: ''
+    disabled: false
+  type:
+    fieldName: type
+    publicName: type
+    enhancer:
+      id: ''
+    disabled: false
+  uuid:
+    fieldName: uuid
+    publicName: uuid
+    enhancer:
+      id: ''
+    disabled: false
+  _core:
+    fieldName: _core
+    publicName: _core
+    enhancer:
+      id: ''
+    disabled: false

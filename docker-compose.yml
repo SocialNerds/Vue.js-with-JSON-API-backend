@@ -1,0 +1,75 @@
+version: '3'
+
+services:
+  server:
+    build:
+      context: ./server
+      args:
+        UID: ${UID}
+        GID: ${GID}
+    container_name: app_server
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./www:/home/serveruser/www:delegated
+    depends_on:
+      - db
+      - fpm
+    networks:
+      app_net:
+        aliases:
+          - server
+          - backend.local
+  fpm:
+    build:
+      context: ./fpm
+      args:
+        UID: ${UID}
+        GID: ${GID}
+    container_name: app_fpm
+    volumes:
+      - ./www:/home/serveruser/www:delegated
+    environment:
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    networks:
+      app_net:
+  db:
+    image: mariadb
+    container_name: app_db
+    volumes:
+      - db-data:/var/lib/mysql
+    environment:
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    networks:
+      app_net:
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: app_phpmyadmin
+    ports:
+      - 8080:80
+    environment:
+      PMA_HOST: db
+      PHP_UPLOAD_MAX_FILESIZE: 67108864
+    networks:
+      app_net:
+  tools:
+    build:
+      context: ./tools
+      args:
+        UID: ${UID}
+        GID: ${GID}
+    container_name: app_tools
+    volumes:
+      - ./www/frontend:/home/serveruser/www/frontend:delegated
+    networks:
+      app_net:
+networks:
+  app_net:
+volumes:
+  db-data:
