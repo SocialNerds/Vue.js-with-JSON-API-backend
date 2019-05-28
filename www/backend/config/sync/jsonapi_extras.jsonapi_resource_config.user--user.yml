@@ -6,12 +6,12 @@ dependencies:
     - user
 id: user--user
 disabled: false
-path: users
-resourceType: user--user
+path: authors
+resourceType: authors
 resourceFields:
   uid:
     fieldName: uid
-    publicName: uid
+    publicName: id
     enhancer:
       id: ''
     disabled: false
@@ -22,11 +22,11 @@ resourceFields:
       id: ''
     disabled: false
   langcode:
+    disabled: true
     fieldName: langcode
     publicName: langcode
     enhancer:
       id: ''
-    disabled: false
   preferred_langcode:
     disabled: true
     fieldName: preferred_langcode
@@ -40,11 +40,11 @@ resourceFields:
     enhancer:
       id: ''
   name:
-    disabled: true
     fieldName: name
     publicName: name
     enhancer:
       id: ''
+    disabled: false
   pass:
     disabled: true
     fieldName: pass
@@ -58,11 +58,11 @@ resourceFields:
       id: ''
     disabled: false
   timezone:
+    disabled: true
     fieldName: timezone
     publicName: timezone
     enhancer:
       id: ''
-    disabled: false
   status:
     disabled: true
     fieldName: status

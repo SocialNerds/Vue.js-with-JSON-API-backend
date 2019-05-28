@@ -4,7 +4,6 @@ module:
   basic_auth: 0
   block: 0
   breakpoint: 0
-  datetime: 0
   dblog: 0
   dynamic_page_cache: 0
   field: 0
@@ -22,11 +21,9 @@ module:
   system: 0
   text: 0
   toolbar: 0
-  update: 0
   user: 0
   minimal: 1000
 theme:
-  stark: 0
   stable: 0
   classy: 0
   seven: 0

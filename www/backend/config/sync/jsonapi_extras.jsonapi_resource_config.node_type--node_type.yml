@@ -1,0 +1,89 @@
+uuid: fabe1349-5382-4e05-aa32-307f1db54f55
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node_type--node_type
+disabled: false
+path: types
+resourceType: types
+resourceFields:
+  uuid:
+    fieldName: uuid
+    publicName: uuid
+    enhancer:
+      id: ''
+    disabled: false
+  langcode:
+    disabled: true
+    fieldName: langcode
+    publicName: langcode
+    enhancer:
+      id: ''
+  status:
+    disabled: true
+    fieldName: status
+    publicName: status
+    enhancer:
+      id: ''
+  dependencies:
+    disabled: true
+    fieldName: dependencies
+    publicName: dependencies
+    enhancer:
+      id: ''
+  third_party_settings:
+    disabled: true
+    fieldName: third_party_settings
+    publicName: third_party_settings
+    enhancer:
+      id: ''
+  _core:
+    disabled: true
+    fieldName: _core
+    publicName: _core
+    enhancer:
+      id: ''
+  name:
+    fieldName: name
+    publicName: name
+    enhancer:
+      id: ''
+    disabled: false
+  type:
+    disabled: true
+    fieldName: type
+    publicName: type
+    enhancer:
+      id: ''
+  description:
+    disabled: true
+    fieldName: description
+    publicName: description
+    enhancer:
+      id: ''
+  help:
+    disabled: true
+    fieldName: help
+    publicName: help
+    enhancer:
+      id: ''
+  new_revision:
+    disabled: true
+    fieldName: new_revision
+    publicName: new_revision
+    enhancer:
+      id: ''
+  preview_mode:
+    disabled: true
+    fieldName: preview_mode
+    publicName: preview_mode
+    enhancer:
+      id: ''
+  display_submitted:
+    disabled: true
+    fieldName: display_submitted
+    publicName: display_submitted
+    enhancer:
+      id: ''

@@ -7,11 +7,11 @@ dependencies:
 id: node--article
 disabled: false
 path: articles
-resourceType: node--article
+resourceType: articles
 resourceFields:
   nid:
     fieldName: nid
-    publicName: nid
+    publicName: id
     enhancer:
       id: ''
     disabled: false
@@ -28,11 +28,11 @@ resourceFields:
     enhancer:
       id: ''
   langcode:
+    disabled: true
     fieldName: langcode
     publicName: langcode
     enhancer:
       id: ''
-    disabled: false
   type:
     fieldName: type
     publicName: type
@@ -88,11 +88,11 @@ resourceFields:
       id: ''
     disabled: false
   promote:
+    disabled: true
     fieldName: promote
     publicName: promote
     enhancer:
       id: ''
-    disabled: false
   sticky:
     disabled: true
     fieldName: sticky
