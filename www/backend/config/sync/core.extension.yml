@@ -13,6 +13,7 @@ module:
   jsonapi: 0
   jsonapi_extras: 0
   jwt: 0
+  jwt_auth_consumer: 0
   jwt_auth_issuer: 0
   key: 0
   node: 0
