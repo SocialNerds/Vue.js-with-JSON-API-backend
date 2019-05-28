@@ -21,12 +21,13 @@ RUN apt-get update && \
   libpng-dev libjpeg-dev git wget nano netcat zip unzip mysql-client
 
 RUN docker-php-ext-configure gd \
-    --with-jpeg-dir=/usr/include/
+  --with-jpeg-dir=/usr/include/
 
 RUN docker-php-ext-install gd
 
 # Opcache.
-RUN docker-php-ext-configure opcache --enable-opcache
+RUN docker-php-ext-configure opcache --enable-opcache && \
+  docker-php-ext-install opcache
 
 # Xdebug.
 RUN pecl install xdebug-2.6.0 && docker-php-ext-enable xdebug
@@ -42,24 +43,24 @@ USER serveruser
 # Install Code sniffer.
 USER serveruser
 RUN composer global require drupal/coder dealerdirect/phpcodesniffer-composer-installer friendsofphp/php-cs-fixer squizlabs/php_codesniffer && \
-    /home/serveruser/.composer/vendor/bin/phpcs --config-set installed_paths ~/.composer/vendor/drupal/coder/coder_sniffer
+  /home/serveruser/.composer/vendor/bin/phpcs --config-set installed_paths ~/.composer/vendor/drupal/coder/coder_sniffer
 
 # Instal drush.
 RUN mkdir /home/serveruser/.drush && cd /home/serveruser/.drush && \
-    composer require drush/drush && echo "PATH=$PATH:~/.composer/vendor/bin" >> ~/.bashrc
+  composer require drush/drush && echo "PATH=$PATH:~/.composer/vendor/bin" >> ~/.bashrc
 USER root
 RUN chmod u+x /home/serveruser/.drush/vendor/bin/drush && \
-    ln -s /home/serveruser/.drush/vendor/bin/drush /usr/bin/drush
+  ln -s /home/serveruser/.drush/vendor/bin/drush /usr/bin/drush
 
 # Drupal console installation.
 RUN curl https://drupalconsole.com/installer -L -o drupal.phar && \
-    mv drupal.phar /usr/local/bin/drupal && \
-    chmod +x /usr/local/bin/drupal
+  mv drupal.phar /usr/local/bin/drupal && \
+  chmod +x /usr/local/bin/drupal
 
 # Install phpunit.
 RUN wget https://phar.phpunit.de/phpunit.phar && \
-    chmod +x phpunit.phar && \
-    mv phpunit.phar /usr/local/bin/phpunit
+  chmod +x phpunit.phar && \
+  mv phpunit.phar /usr/local/bin/phpunit
 
 # Install file.
 COPY install_backend.sh /usr/local/bin/
