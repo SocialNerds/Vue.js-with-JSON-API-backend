@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <p>
-      <router-link to="/view">Go to View ALl</router-link>
+      <router-link to="/view" style="margin-right: 20px;">Go to View ALl</router-link>
       <router-link to="/new">Go to New Article</router-link>
     </p>
 

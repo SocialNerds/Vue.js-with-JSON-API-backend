@@ -1,16 +1,16 @@
 <template>
   <div>
-    <h1>Articles</h1>
-    <div :for="article in articles" :key="`${article.title}-${article.user}`">
+    <h1>Loaded {{ articles.length }} Articles</h1>
+
+    <div v-for="(article, index) in articles" :key="`article-${index}`">
       <h2>{{ article.title }}</h2> <h6 style="display: inline-block;">{{ article.user }}</h6>
 
       <p>{{ article.content }}</p>
     </div>
     
-    <p :if="error !== ''" style="color: red;">{{ error }}</p>
+    <p v-if="error !== ''" style="color: red;">{{ error }}</p>
 
-    <p :if="loading">Loading...</p>
-    <a :if="!loading" @click="loadMore()">Load More</a>
+    <p v-if="loading">Loading...</p>
   </div>
 </template>
 
@@ -23,27 +23,29 @@ export default {
     return {
       articles: [],
       error: '',
-      loading: false,
-      page: 0
+      loading: false
     }
   },
   async mounted () {
-    await this.loadMore()
+    await this.loadArticles()
   },
   methods: {
-    async loadMore(){
+    async loadArticles(){
       this.loading = true
       this.error = ''
+      
       try {
-        const response = axios.get(`http://localhost/getAll?page=${this.page}`)
+        const response = await axios.get(`http://localhost/backend/api/articles`)
 
-        this.articles.push(response.articles)
-        this.page = response.nextPage
+        if (response && response.data) {
+          const articles = response.data.data
+          this.articles = articles ? articles : []
+        }
       } catch (e) {
         this.error = e
+      } finally {
+        this.loading = false
       }
-
-      this.loading = false
     }
   }
 }
