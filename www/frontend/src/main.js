@@ -14,7 +14,7 @@ Vue.config.productionTip = false
 
 axios.interceptors.request.use(function (config) {
   if (!config.headers.Authorization) {
-    const auth = 'zarkopafilis:asdf'// getUserAuth()
+    const auth = 'YWRtaW46MTIzNDU2'// obtain cached token
 
     if (auth) {
       config.headers.Authorization = `Basic ${auth}`
