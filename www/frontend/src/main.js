@@ -18,6 +18,8 @@ axios.interceptors.request.use(function (config) {
 
     if (auth) {
       config.headers.Authorization = `Basic ${auth}`
+      config.headers['Content-Type'] = 'application/vnd.api+json'
+      config.headers['Accept'] = 'application/vnd.api+json'
     }
   }
 

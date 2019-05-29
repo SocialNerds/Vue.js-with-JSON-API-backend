@@ -2,10 +2,16 @@
   <div>
     <h1>Loaded {{ articles.length }} Articles</h1>
 
-    <div v-for="(article, index) in articles" :key="`article-${index}`">
-      <h2>{{ article.title }}</h2> <h6 style="display: inline-block;">{{ article.user }}</h6>
+    <div v-for="(article, index) in articles" :key="`article-${index}`" style="padding: 50px;">
+      <hr />
+      <div style="display: flex; align-items: center; margin: auto;">
+        <h2>{{ article.attributes.title }}</h2> 
+        <h6 style="margin-left:20px; font-size: 8px;">{{ article.relationships.author.data.id }}</h6>
+      </div>
 
-      <p>{{ article.content }}</p>
+      <div style="display: flex; align-items: center; margin: auto;">
+        <p>{{ article.attributes.body.value }}</p>
+      </div>
     </div>
     
     <p v-if="error !== ''" style="color: red;">{{ error }}</p>
@@ -39,6 +45,9 @@ export default {
 
         if (response && response.data) {
           const articles = response.data.data
+
+          // eslint-disable-next-line
+          console.log(articles)
           this.articles = articles ? articles : []
         }
       } catch (e) {
