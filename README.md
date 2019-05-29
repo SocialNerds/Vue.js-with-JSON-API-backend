@@ -35,9 +35,13 @@ exit
 ~~~~
 
 # Vue.js
-(Pending)
+You have a couple of options for running the frontend (`/www/frontend`):
+- If you have natively installed npm, you can run the devserver with `npm run dev` (or `yarn serve`), in order to rapidly test with hotreload
+
+- If you want to package the project for production usage, you run `npm run build` (or `yarn build`). Files under `/www/frontend/dist` need to be server by the webserver of your choice. Don't forget to configure CORS.
 
 # Backend endpoints
+Basic authentication is supported throughout the app. The same is true for JWT-based auth.
 
 ### JWT provider
 GET method with basic_auth on,
