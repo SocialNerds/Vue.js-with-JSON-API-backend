@@ -24,6 +24,11 @@ Login to the container,
 docker exec -it -u serveruser app_fpm /bin/bash -c "TERM=$TERM exec bash"
 ~~~~
 
+Install dependencies,
+~~~~
+composer install
+~~~~
+
 Setup backend,
 ~~~~
 install_backend.sh
@@ -32,6 +37,11 @@ install_backend.sh
 Exit the container,
 ~~~~
 exit
+~~~~
+
+Shutdown the containers,
+~~~~
+docker-compose down
 ~~~~
 
 # Vue.js
